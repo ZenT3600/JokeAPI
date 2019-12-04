@@ -24,3 +24,6 @@ class Jokes:
         elif req['type'] == 'single':
             joke = req['joke']
         return joke
+	
+	def get_raw_joke(self):
+		return requests.get(f"https://sv443.net/jokeapi/category/{self.category}?").json()
