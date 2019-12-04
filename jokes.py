@@ -1,4 +1,6 @@
 import requests
+
+
 # Base URL: https://sv443.net/jokeapi/category/{CATEGORY}
 # Categories: Programming, Miscellaneous, Dark, Any
 
@@ -6,11 +8,11 @@ import requests
 class Jokes:
     def __init__(self, category):
         self.allowed = [
-                'Programming',
-                'Miscellaneous',
-                'Dark',
-                'Any'
-                ]
+            'Programming',
+            'Miscellaneous',
+            'Dark',
+            'Any'
+        ]
         if category.capitalize() in self.allowed:
             self.category = category.capitalize()
         else:
@@ -24,6 +26,6 @@ class Jokes:
         elif req['type'] == 'single':
             joke = req['joke']
         return joke
-	
-	def get_raw_joke(self):
-		return requests.get(f"https://sv443.net/jokeapi/category/{self.category}?").json()
+        
+    def get_raw_joke(self):
+        return requests.get(f"https://sv443.net/jokeapi/category/{self.category}?").json()
